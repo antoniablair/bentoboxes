@@ -54,3 +54,13 @@ def post_edit(request, pk):
         # pass blog post in when we just opened a form with this post to edit
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+
+def post_publish(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    # use publish method
+    post.publish()
+    return redirect('blog.views.post_detail', pk=pk)
