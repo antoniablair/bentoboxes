@@ -3,6 +3,15 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
+# Ingredients, i.e., one recipe might call for 2 slices of bread, etc
+class Ingredient(models.Model):
+    quantity = models.DecimalField(max_digits=5, decimal_places=2,
+                                   default='1',
+                                   blank=True)
+    measurement = models.CharField(max_length=200, default='pinch', blank=True)
+    text = models.CharField(max_length=200, default='salt')
+
+
 class Recipe(models.Model):
     # Should there be more than one author?
     author = models.ForeignKey('auth.user')
@@ -21,9 +30,3 @@ class Recipe(models.Model):
     # __str__ method returns a string of the Post title
     def __str__(self):
         return self.title
-
-# Ingredients, i.e., one recipe might call for 2 slices of bread, 1 piece of Gouda, lettuce, etc
-class Ingredient(models.Model):
-    quantity = models.DecimalField(max_digits=None, decimal_places=None, default='1', blank=True)
-    measurement = models.CharField(max_length=200, default='pinch', blank=True)
-    text = models.CharField(max_length=200, default='salt')

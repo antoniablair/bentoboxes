@@ -1,6 +1,6 @@
 h1 a {
   color: #FCA205;
-  font-family: 'Lobster';
+  font-family: 'Short Stack';
 }
 body {
   background-color: #4498A3;
@@ -8,7 +8,7 @@ body {
 .page-header {
   background-color: #D66EA4;
   margin-top: 0;
-  padding: 20px 20px 20px 40px;
+  padding: 20px 20px 0px 40px;
 }
 .page-header h1,
 .page-header h1 a,
@@ -17,6 +17,7 @@ body {
   color: #ffffff;
   font-size: 36pt;
   text-decoration: none;
+  display: inline-block;
 }
 .content {
   margin-left: 40px;
@@ -59,4 +60,15 @@ h4 {
 }
 .comment {
   margin: 20px 0px 20px 20px;
+}
+.heart {
+  height: 70px;
+  display: inline-block;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.bento-logo {
+  height: 100px;
+  margin-bottom: 25px;
+  padding-right: 25px;
 }
