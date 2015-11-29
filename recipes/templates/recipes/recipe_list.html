@@ -1,6 +1,16 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <p>This is the recipe page.</p>
+    <h1>This is the recipe page.</h1>
+    {% for recipe in recipes %}
+      <div class="post">
+        <div class="date">
+            <p>published: {{ recipe.published_date }}</p>
+        </div>
+        <h1>{{ recipe.title }}</h1>
+        <p>{{ recipe.text|linebreaks }}</p>
+      </div>
+    {% endfor %}
 {% endblock content %}
+
 

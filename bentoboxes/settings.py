@@ -35,6 +35,7 @@ INSTALLED_APPS = (
     'blog',
     'recipes',
     'django_extensions',
+    'sorl.thumbnail'
 )
 
 MIDDLEWARE_CLASSES = (
