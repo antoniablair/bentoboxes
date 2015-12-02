@@ -11,6 +11,9 @@ class Ingredient(models.Model):
     measurement = models.CharField(max_length=200, default='pinch', blank=True)
     text = models.CharField(max_length=200, default='salt')
 
+    def __str__(self):
+        return self.text
+
 
 class Recipe(models.Model):
     # Should there be more than one author?
