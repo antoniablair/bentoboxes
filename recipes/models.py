@@ -4,15 +4,16 @@ from django.contrib.auth.models import User
 
 
 # Ingredients, i.e., one recipe might call for 2 slices of bread, etc
+# Ingredient needs to be moved inside Recipe???
 class Ingredient(models.Model):
     quantity = models.DecimalField(max_digits=5, decimal_places=2,
                                    default='1',
-                                   blank=True)
-    measurement = models.CharField(max_length=200, default='pinch', blank=True)
-    text = models.CharField(max_length=200, default='salt')
+                                   blank=True, null=True)
+    measurement = models.CharField(max_length=200, default='pinch', blank=True, null=True)
+    name = models.CharField(max_length=200, default='salt')
 
     def __str__(self):
-        return self.text
+        return self.name
 
 
 class Recipe(models.Model):
@@ -31,5 +32,13 @@ class Recipe(models.Model):
         self.save()
 
     # __str__ method returns a string of the Post title
+    def __str__(self):
+        return self.title
+
+
+class Category(models.Model):
+    title = models.CharField(max_length=200)
+    recipes = models.ManyToManyField(Recipe, related_name='recipes')
+
     def __str__(self):
         return self.title
