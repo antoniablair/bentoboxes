@@ -4,5 +4,5 @@ from .models import Like
 
 class LikeForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ('recipe', 'creator')
+        model = Like
+        fields = ('creator', 'created_date', 'recipe')

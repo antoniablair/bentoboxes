@@ -1,0 +1,10 @@
+{% block content %}
+    <form method="POST" action="" class="post-form">
+        {% csrf_token %}
+        <!--  .as_p will render the form wrapped in <p> tags  -->
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">
+          <i class="fa fa-heart fa-lg">Submit</i>
+        </button>
+    </form>
+{% endblock %}

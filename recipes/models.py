@@ -25,7 +25,7 @@ class Recipe(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
-    likes = models.ManyToManyField(User, related_name='likes')
+    # likes = models.ManyToManyField(Like, related_name='likes')
 
     def publish(self):
         self.published_date = timezone.now()
@@ -47,8 +47,7 @@ class Category(models.Model):
 class Like(models.Model):
     creator = models.ForeignKey('auth.user')
     created_date = models.DateTimeField(default=timezone.now)
+    recipe = models.ForeignKey(Recipe, related_name='likes')
 
-    recipe = models.ManyToManyField(Recipe, related_name='liked_recipes')
-
-    def __unicode__(self):
-        return self.creator
+    def __str__(self):
+        return self.recipe.title
