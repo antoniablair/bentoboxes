@@ -1,17 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    {% for recipe in recipes %}
-      <a href="{% url 'recipes.views.recipe_detail' pk=recipe.pk %}">
+    <div class="recipe-card">
         <div class="post">
           <div class="date">
               <p>published: {{ recipe.published_date }}</p>
           </div>
           <h1>{{ recipe.title }}</h1>
           <p>{{ recipe.text|linebreaks }}</p>
+
         </div>
-      </a>
-    {% endfor %}
-{% endblock content %}
-
-
+    </div>
+{% endblock %}

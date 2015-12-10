@@ -48,7 +48,7 @@ class Like(models.Model):
     creator = models.ForeignKey('auth.user')
     created_date = models.DateTimeField(default=timezone.now)
 
-    Recipe = models.ManyToManyField(Recipe, related_name='liked_recipes')
+    recipe = models.ManyToManyField(Recipe, related_name='liked_recipes')
 
     def __unicode__(self):
         return self.creator
