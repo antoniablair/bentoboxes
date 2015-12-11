@@ -5,7 +5,8 @@
         <div class="post">
           <div class="date">
               <p>published: {{ recipe.published_date }}</p>
-              <a class="btn btn-default" href="{% url 'like_recipe' pk=recipe.pk %}"><i class="fa fa-heart"></i></a>
+
+                <i class="fa fa-heart fa-lg like-recipe"></i>
           </div>
           <h1>{{ recipe.title }}</h1>
           <p>{{ recipe.text|linebreaks }}</p>
