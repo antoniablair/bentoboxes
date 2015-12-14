@@ -1,9 +1,12 @@
-from snippets.models import Snippet
-from snippets.serializers import SnippetSerializer
 from django.http import Http404
+from snippets.models import Snippet
+# from snippets.permissions import IsOwnerOrReadOnly
+from snippets.serializers import SnippetSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.contrib.auth.models import User
+
 
 # Class based view
 
@@ -31,6 +34,9 @@ class SnippetDetail(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
+    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+    #                       IsOwnerOrReadOnly,)
+
     def get_object(self, pk):
         try:
             return Snippet.objects.get(pk=pk)
@@ -54,3 +60,12 @@ class SnippetDetail(APIView):
         snippet = self.get_object(pk)
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
