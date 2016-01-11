@@ -4,9 +4,8 @@ h1 a {
   weight: 300;
 }
 .page-header {
-  background-color: #D66EA4;
-  margin-top: 0;
   padding: 20px 20px 0px 40px;
+  margin: 0px 0px;
   min-height: 50px;
   overflow: hidden;
 }
@@ -21,6 +20,14 @@ h1 a {
   font-size: 36pt;
   text-decoration: none;
   display: inline-block;
+}
+section.main {
+  background-color: #d3e4ff;
+}
+.stripe {
+  height: 8px;
+  background: repeating-linear-gradient(45deg, #408189, #408189 10px, #48BEFF 10px, #48BEFF 20px);
+  margin-bottom: 30px;
 }
 .content {
   margin-left: 40px;
@@ -41,17 +48,30 @@ h4 {
 .post-form input {
   width: 100%;
 }
-.top-menu,
-.top-menu:hover,
-.top-menu:visited {
-  color: #ffffff;
-  float: right;
-  font-size: 26pt;
+.top-menu.name,
+.top-menu:hover.name,
+.top-menu:visited.name {
+  color: #428bca;
+  font-size: 20px;
   margin-right: 20px;
+  text-align: right;
+}
+.top-menu a,
+.top-menu:hover a,
+.top-menu:visited a {
+  display: inline-block;
+}
+.top-menu.icon,
+.top-menu:hover.icon,
+.top-menu:visited.icon {
+  font-size: 30px;
+  margin-right: 20px;
+  text-align: right;
+  float: right;
 }
 .post {
   margin-bottom: 70px;
-  background-color: white;
+  background-color: #fff;
   padding: 30px;
 }
 .post h1 a,
@@ -64,12 +84,15 @@ h4 {
 .comment {
   margin: 20px 0px 20px 20px;
 }
+.post,
 .recipe-card {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 3px 1px -2px rgba(0, 0, 0, 0.3), 0 1px 5px 0 rgba(0, 0, 0, 0.22);
 }
+.post:hover,
 .recipe-card:hover {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
+.post .heart,
 .recipe-card .heart {
   height: 70px;
   display: inline-block;

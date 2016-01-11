@@ -2,16 +2,15 @@
 
 {% block content %}
     {% for recipe in recipes %}
-      <a href="{% url 'recipes.views.recipe_detail' pk=recipe.pk %}">
+    <a href="{% url 'recipes.views.recipe_detail' pk=recipe.pk %}">
         <div class="post">
-          <div class="date">
-              <p>published: {{ recipe.published_date }}</p>
-          </div>
-          <h1>{{ recipe.title }}</h1>
-          <p>{{ recipe.text|linebreaks }}</p>
+            <div class="date">
+                <p>published: {{ recipe.published_date }}</p>
+            </div>
+        <h1>{{ recipe.title }}</h1>
+        <p>{{ recipe.text|linebreaks }}</p>
         </div>
-      </a>
-      <i class="fa fa-heart"></i>
+    </a>
     {% endfor %}
 {% endblock content %}
 

@@ -4,6 +4,7 @@
  @pink: #D66EA4;
  @turquoise: #4498A3;
  @darkturquoise: #408189;
+ @white: #fff;
 
 h1 a {
   color: @dandelion;
@@ -12,15 +13,14 @@ h1 a {
 }
 
 .page-header {
-  background-color: @pink;
-  margin-top: 0;
   padding: 20px 20px 0px 40px;
+  margin: 0px 0px;
   min-height: 50px;
   overflow: hidden;
 }
 
 .page-header-right {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -28,6 +28,22 @@ h1 a {
   font-size: 36pt;
   text-decoration: none;
   display: inline-block;
+}
+
+section.main {
+  background-color: #d3e4ff;
+}
+
+.stripe {
+  height: 8px;
+  background: repeating-linear-gradient(
+    45deg,
+    #408189,
+    #408189 10px,
+    #48BEFF 10px,
+    #48BEFF 20px
+  );
+  margin-bottom: 30px;
 }
 
 .content {
@@ -51,15 +67,26 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-  color: #ffffff;
-  float: right;
-  font-size: 26pt;
-  margin-right: 20px;
+  &.name {
+    color: #428bca;
+    font-size: 20px;
+    margin-right: 20px;
+    text-align: right;
+  }
+  a {
+    display: inline-block;
+  }
+  &.icon {
+    font-size: 30px;
+    margin-right: 20px;
+    text-align: right;
+    float: right;
+  }
 }
 
 .post {
   margin-bottom: 70px;
-  background-color: white;
+  background-color: @white;
   padding: 30px;
 }
 
@@ -75,7 +102,7 @@ h1, h2, h3, h4 {
   margin: 20px 0px 20px 20px;
 }
 
-.recipe-card {
+.post, .recipe-card {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.24),0 3px 1px -2px rgba(0,0,0,.3),0 1px 5px 0 rgba(0,0,0,.22);
   &:hover {
     box-shadow: 0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12),0 5px 5px -3px rgba(0,0,0,.2);
