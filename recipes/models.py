@@ -16,12 +16,19 @@ class Ingredient(models.Model):
         return self.name
 
 
+# A lunch has many recipes
+# A recipe has many ingredients
+# A recipe be labeled with any of the following if desired: Featured, Healthy, Cheap, Veggie, Vegan, Easy, Fast, Fun
+# A recipe is in a category (i.e. Bento, Sandwiches, Soups, etc)
+# A recipe can have be tagged with keywords that can be used for search
+# Ingredients
+
 class Recipe(models.Model):
     # Should there be more than one author?
     author = models.ForeignKey('auth.user')
     title = models.CharField(max_length=400)
     text = models.TextField()
-    ingredients = models.ManyToManyField(Ingredient, related_name='ingredients')
+    ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
@@ -36,9 +43,15 @@ class Recipe(models.Model):
         return self.title
 
 
+class Label(models.Model):
+    name = models.CharField(max_length=200)
+    recipes = models.ManyToManyField(Recipe)
+    creator = models.ManyToManyField(User, related_name='labels')
+
+
 class Category(models.Model):
     title = models.CharField(max_length=200)
-    recipes = models.ManyToManyField(Recipe, related_name='recipes')
+    recipes = models.ManyToManyField(Recipe, related_name='categories')
 
     def __str__(self):
         return self.title
