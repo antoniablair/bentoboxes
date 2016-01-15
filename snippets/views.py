@@ -12,7 +12,6 @@ from snippets.serializers import UserSerializer
 from rest_framework import permissions
 from snippets.permissions import IsOwnerOrReadOnly
 
-
 # Class based view
 
 class SnippetList(APIView):

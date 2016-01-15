@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-
 # Ingredients, i.e., one recipe might call for 2 slices of bread, etc
 # Ingredient needs to be moved inside Recipe???
 class Ingredient(models.Model):
@@ -32,6 +31,7 @@ class Recipe(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
+
     # likes = models.ManyToManyField(Like, related_name='likes')
 
     def publish(self):
