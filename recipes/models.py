@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import Member
 
 # Ingredients, i.e., one recipe might call for 2 slices of bread, etc
 # Ingredient needs to be moved inside Recipe???
@@ -24,7 +24,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     # Should there be more than one author?
-    author = models.ForeignKey('auth.user')
+    author = models.ForeignKey('settings.AUTH_USER_MODEL')
     title = models.CharField(max_length=400)
     text = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
@@ -43,10 +43,10 @@ class Recipe(models.Model):
         return self.title
 
 
-class Label(models.Model):
-    name = models.CharField(max_length=200)
-    recipes = models.ManyToManyField(Recipe)
-    creator = models.ManyToManyField(User, related_name='labels')
+# class Label(models.Model):
+#     name = models.CharField(max_length=200)
+#     recipes = models.ManyToManyField(Recipe)
+#     creator = models.ManyToManyField(Member, related_name='labels')
 
 
 class Category(models.Model):
@@ -58,7 +58,7 @@ class Category(models.Model):
 
 
 class Like(models.Model):
-    creator = models.ForeignKey('auth.user')
+    creator = models.ForeignKey('settings.AUTH_USER_MODEL')
     created_date = models.DateTimeField(default=timezone.now)
     recipe = models.ForeignKey(Recipe, related_name='likes')
 

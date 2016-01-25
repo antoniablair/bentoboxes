@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'members.Member'
 
 # Application definition
 
@@ -33,6 +34,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'members',
     'recipes',
     'django_extensions',
     'sorl.thumbnail',
