@@ -21,6 +21,9 @@ h1 a {
   text-decoration: none;
   display: inline-block;
 }
+section.main {
+  min-height: 1000px;
+}
 section.main,
 section.footer {
   background-color: #d3e4ff;
@@ -73,10 +76,40 @@ h4 {
   text-align: right;
   float: right;
 }
-.post {
+.post,
+.card {
   margin-bottom: 70px;
   background-color: #fff;
   padding: 30px;
+  border-radius: 20px;
+}
+.card.profile .profile-header {
+  height: 75px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.card.profile img {
+  display: inline-block;
+}
+.card.profile h1 {
+  position: absolute;
+  left: 85px;
+  bottom: -13px;
+}
+.card.profile .title {
+  color: #428bca;
+  font-weight: 500;
+}
+.card .body h1,
+.card .body h2,
+.card .body h3,
+.card .body h4,
+.card .body h5,
+.card .body h6,
+.card .body p,
+.card .body li {
+  font-family: sans-serif;
+  font-size: 20px;
 }
 .post h1 a,
 .post h1 a:visited {

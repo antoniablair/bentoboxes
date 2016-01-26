@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 # from django.contrib.auth.models import Member
@@ -24,7 +25,7 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     # Should there be more than one author?
-    author = models.ForeignKey('settings.AUTH_USER_MODEL')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=400)
     text = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
@@ -58,7 +59,7 @@ class Category(models.Model):
 
 
 class Like(models.Model):
-    creator = models.ForeignKey('settings.AUTH_USER_MODEL')
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_date = models.DateTimeField(default=timezone.now)
     recipe = models.ForeignKey(Recipe, related_name='likes')
 

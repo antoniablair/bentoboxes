@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% load thumbnail %}
+
+{% block content %}
+    <div class="card profile">
+        <div class="profile-header">
+            {% thumbnail member.avatar "75x75" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% endthumbnail %}
+            <h1> {{ member.username }} </h1>
+        </div>
+        <div class="body">
+            <p><span class="title">Name:</span> {{ member.first_name }} {{ member.last_name }}</p>
+            <p><span class="title">Occupation:</span> </p>
+            <p><span class="title">Location: </span></p>
+            <p><span class="title">Favorite Recipes:</span>
+        </div>
+    </div>
+{% endblock %}

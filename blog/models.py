@@ -1,9 +1,10 @@
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
 
 class Post(models.Model):
-    author = models.ForeignKey('settings.AUTH_USER_MODEL')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
@@ -13,8 +14,7 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    # __str__ method returns a string of the Post title
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
     def approved_comments(self):
@@ -36,5 +36,5 @@ class Comment(models.Model):
         self.approved_comment = True
         self.save()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.text

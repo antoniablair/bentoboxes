@@ -4,6 +4,7 @@
  @pink: #D66EA4;
  @turquoise: #4498A3;
  @darkturquoise: #408189;
+ @brightblue: #428bca;
  @white: #fff;
 
 h1 a {
@@ -28,6 +29,10 @@ h1 a {
   font-size: 36pt;
   text-decoration: none;
   display: inline-block;
+}
+
+section.main {
+  min-height: 1000px;
 }
 
 section.main, section.footer {
@@ -72,7 +77,7 @@ h1, h2, h3, h4 {
 
 .top-menu, .top-menu:hover, .top-menu:visited {
   &.name {
-    color: #428bca;
+    color: @brightblue;
     font-size: 20px;
     margin-right: 20px;
     text-align: right;
@@ -88,10 +93,38 @@ h1, h2, h3, h4 {
   }
 }
 
-.post {
+.post, .card {
   margin-bottom: 70px;
   background-color: @white;
   padding: 30px;
+  border-radius: 20px;
+}
+
+.card.profile {
+  .profile-header {
+    height: 75px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  img {
+    display: inline-block;
+  }
+  h1 {
+    position: absolute;
+    left: 85px;
+    bottom: -13px;
+  }
+  .title {
+    color: @brightblue;
+    font-weight: 500;
+  }
+}
+
+.card .body {
+  h1, h2, h3, h4, h5, h6, p, li {
+    font-family: sans-serif;
+    font-size: 20px;
+  }
 }
 
 .post h1 a, .post h1 a:visited {

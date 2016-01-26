@@ -1,14 +1,16 @@
+from django.conf import settings
 from django.http import Http404
+from members.models import Member
 from snippets.models import Snippet
 from snippets.serializers import SnippetSerializer
-from snippets.serializers import UserSerializer
+from snippets.serializers import MemberSerializer
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.models import User
-from snippets.serializers import UserSerializer
+from snippets.serializers import MemberSerializer
 from rest_framework import permissions
 from snippets.permissions import IsOwnerOrReadOnly
 
@@ -70,11 +72,13 @@ class SnippetDetail(APIView):
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class MemberList(generics.ListAPIView):
+    # Member = django.contrib.auth.get_user_model()
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
 
 
-class UserDetail(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class MemberDetail(generics.RetrieveAPIView):
+    # Member = django.contrib.auth.get_user_model()
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
