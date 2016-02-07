@@ -8,12 +8,12 @@
     <body>
         <section class="main">
             <div class="page-header">
-                <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-12 col-lg-10">
                     <img src="{% static 'images/sushi.png' %}" class="bento-logo">
                     <img src="{% static 'images/bentologo.png' %}" class="bento-logo-txt" title="Bento Inspo">
                 </div>
 
-                <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+                <div class="col-xs-12 col-sm-2">
                     <div class="page-header-right">
                     {% if user.is_authenticated %}
                         <p class="top-menu name">
@@ -30,12 +30,27 @@
                             </span>
                         </a>
                         <a href="{% url 'post_list' %}" class="top-menu icon">
-                        <span class="glyphicon glyphicon-folder-close">
+                            <span class="glyphicon glyphicon-folder-close">
                             </span>
                         </a>
                     {% else %}
                         <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
                     {% endif %}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Blog </a></li>
+                            <li><a href="#">Recipes</a></li>
+                            <li role="separator" class="divider"></li>
+                            {% if user.is_authenticated %}
+                                <li><a href="#">My profile</a></li>
+                            {% else %}
+                                <li><a href="{% url 'django.contrib.auth.views.login' %}">Login</a></li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
             </div>
