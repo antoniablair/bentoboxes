@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'sorl.thumbnail',
     'rest_framework',
+    'shared',
     'snippets',
     'api',
 )
