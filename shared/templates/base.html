@@ -33,8 +33,8 @@
                     </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="#">Blog </a></li>
-                            <li><a href="#">Recipes</a></li>
+                            <li><a href="{% url 'post_list' %}">Blog </a></li>
+                            <li><a href="{%  url 'post_list' %}">Lunches</a></li>
                             <li role="separator" class="divider"></li>
                             {% if user.is_authenticated %}
                                 <li><a href="#">My profile</a></li>
