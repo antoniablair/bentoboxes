@@ -31,6 +31,7 @@ urlpatterns = [
     # url(r'^snippets/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^', include('snippets.urls')),
+    url(r'^lunches/', include('lunches.urls')),
     url(r'^members/', include('members.urls')),
 ]
 
