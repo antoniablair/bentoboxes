@@ -27,21 +27,22 @@ AUTH_USER_MODEL = 'members.Member'
 # Application definition
 
 INSTALLED_APPS = (
+    'api',
+    'blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+    'django_extensions',
     'members',
     'recipes',
-    'django_extensions',
-    'sorl.thumbnail',
     'rest_framework',
     'shared',
     'snippets',
-    'api',
+    'sorl.thumbnail',
+    'lunches',
 )
 
 MIDDLEWARE_CLASSES = (
