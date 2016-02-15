@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-    <p>Here are the lunches</p>
+    {% for lunch in lunches %}
+        {{ lunch.name }}
+    {% endfor %}
 {% endblock %}
